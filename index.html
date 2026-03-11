@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>SIGES — Seguridad Electrónica</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:     #0d1117;
@@ -24,10 +24,10 @@
   --text2:  #8b949e;
   --text3:  #484f58;
   --mono:   'JetBrains Mono', monospace;
-  --sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sans:   'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
   --sb-w:   272px;
   --radius: 6px;
-  --fbase:  15px;
+  --fbase:  16px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -266,7 +266,7 @@ input[type=search]::placeholder { color: var(--text3); }
 
 /* ━━━━ TABLE ━━━━ */
 .table-wrap { flex: 1; overflow: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
 thead tr { background: var(--bg3); position: sticky; top: 0; z-index: 10; }
 th {
   padding: 10px 13px;
@@ -285,10 +285,10 @@ th {
 th:hover { color: var(--text2); }
 th.drag-over { border-left: 2px solid var(--accent); }
 td {
-  padding: 9px 13px;
+  padding: 11px 14px;
   border-bottom: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   vertical-align: middle;
   max-width: 200px;
   overflow: hidden;
@@ -409,8 +409,8 @@ mark { background: rgba(63,185,80,.2); color: var(--accent); border-radius: 2px;
   padding: 10px 12px;
 }
 .dfield-label {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--text3);
   letter-spacing: .5px;
   text-transform: uppercase;
@@ -421,7 +421,7 @@ mark { background: rgba(63,185,80,.2); color: var(--accent); border-radius: 2px;
 }
 .dfield-val {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text);
   word-break: break-all;
 }
@@ -454,14 +454,14 @@ mark { background: rgba(63,185,80,.2); color: var(--accent); border-radius: 2px;
   margin-bottom: 2px;
 }
 .edit-field { display: flex; flex-direction: column; gap: 4px; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
-.edit-field label { font-size: 10px; font-weight: 600; color: var(--text3); letter-spacing: .5px; text-transform: uppercase; }
+.edit-field label { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: .5px; text-transform: uppercase; }
 .edit-field input, .edit-field select {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
   font-family: var(--mono);
-  font-size: 13px;
-  padding: 6px 9px;
+  font-size: 14px;
+  padding: 7px 10px;
   border-radius: 4px;
   outline: none;
   transition: border-color .2s;
@@ -666,6 +666,78 @@ label.lbl { font-size: 12px; font-weight: 600; color: var(--text3); letter-spaci
 /* Botón ➕ sector en mc-foot */
 .mc-foot-add-sub { display:flex; gap:8px; align-items:center; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
 
+/* ━━━━ CAMPOS EDITABLES NUEVA UF ━━━━ */
+.nuf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  position: relative;
+}
+.nuf-field.is-name { grid-column: 1 / -1; border-color: var(--accent); }
+.nuf-label-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nuf-label-input {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--border2);
+  color: var(--text3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  padding: 0 0 2px;
+  outline: none;
+  cursor: text;
+  min-width: 0;
+}
+.nuf-label-input:focus { border-bottom-color: var(--blue); color: var(--blue); }
+.nuf-label-input:hover { border-bottom-color: var(--text3); }
+.nuf-del-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  font-size: 13px;
+  padding: 1px 3px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: .15s;
+  flex-shrink: 0;
+}
+.nuf-del-btn:hover { color: var(--red); background: rgba(255,107,107,.12); }
+.nuf-value-input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 7px 10px;
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+.nuf-value-input:focus { border-color: var(--accent); }
+.nuf-required-badge {
+  font-size: 9px;
+  background: rgba(63,185,80,.15);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  flex-shrink: 0;
+}
+
 .ef-chip { display: flex; align-items: center; gap: 8px; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 7px 12px; font-size: 13px; }
 .ef-type { font-size: 10px; color: var(--text3); background: var(--bg4); padding: 2px 6px; border-radius: 3px; font-weight: 600; letter-spacing: .5px; }
 
@@ -793,7 +865,7 @@ label.lbl { font-size: 12px; font-weight: 600; color: var(--text3); letter-spaci
         <button class="btn btn-green btn-sm" onclick="exportExcel()">📊 Excel</button>
         <button class="btn btn-orange btn-sm" onclick="exportPDF()">📄 PDF</button>
         <button class="btn btn-ghost btn-sm" onclick="openColOrder()">⚙ Columnas</button>
-        <button class="btn btn-solid btn-sm" id="addUFBtn" onclick="openNewUFFromConsulta()" style="display:none">➕ Nueva UF</button>
+        <button class="btn btn-solid btn-sm" id="addUFBtn" onclick="openNewUFFromConsulta()">➕ Nueva UF</button>
         <span id="exportScope" style="font-family:var(--mono);font-size:12px;color:var(--text3);"></span>
       </div>
       <div class="table-wrap">
@@ -1084,18 +1156,32 @@ label.lbl { font-size: 12px; font-weight: 600; color: var(--text3); letter-spaci
 
 <!-- ━━━━ MODAL: NUEVA UF ━━━━ -->
 <div class="overlay" id="newUFModal" onclick="closeModalBg('newUFModal',event)">
-  <div class="modal" style="max-width:620px;max-height:90vh">
+  <div class="modal" style="max-width:680px;max-height:92vh">
     <div class="modal-hdr">
       <div style="flex:1">
         <div class="modal-title">➕ Nueva UF / Equipo</div>
-        <div class="modal-sub">Sector: <span id="newUFSectorLabel" style="color:var(--blue)"></span></div>
+        <div class="modal-sub">Sector: <span id="newUFSectorLabel" style="color:var(--blue);font-weight:700"></span></div>
       </div>
       <button class="btn btn-icon" onclick="closeModal('newUFModal')">✕</button>
     </div>
-    <div class="modal-body" style="padding:18px;overflow-y:auto">
-      <input type="hidden" id="newUFSector">
-      <input type="hidden" id="newUFMacro">
-      <div id="newUFFieldsGrid" class="new-uf-grid"></div>
+    <div class="modal-body" style="padding:0;overflow-y:auto;display:flex;flex-direction:column">
+
+      <!-- Selector de sector si no hay uno seleccionado -->
+      <div id="newUFSectorPicker" style="display:none;padding:16px 18px;border-bottom:1px solid var(--border);background:var(--bg3)">
+        <label class="lbl">Selecciona el sector donde agregar la UF</label>
+        <select class="form-select" id="newUFSectorSelect" onchange="newUFPickSector(this.value)" style="max-width:340px">
+          <option value="">— Elige un sector —</option>
+        </select>
+      </div>
+
+      <!-- Campos dinámicos -->
+      <div style="padding:16px 18px;flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="font-size:13px;color:var(--text3)">Llena los campos. Puedes <b style="color:var(--text2)">renombrar</b>, <b style="color:var(--accent)">agregar</b> o <b style="color:var(--red)">eliminar</b> campos.</span>
+          <button class="btn btn-solid btn-sm" onclick="newUFAddField()">➕ Nuevo campo</button>
+        </div>
+        <div id="newUFFieldsGrid" class="new-uf-grid"></div>
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('newUFModal')">Cancelar</button>
@@ -2078,15 +2164,13 @@ function deleteUF(sheet, idx) {
   toast(`🗑 UF "${name}" eliminada`);
 }
 function openNewUFFromConsulta() {
-  // Si hay un sector concreto seleccionado, usarlo; si no, pedir selección
   if (SEL && SEL.startsWith('sector:')) {
     const sector = SEL.replace('sector:', '');
-    // Buscar el macro al que pertenece
     let macro = 'Sin clasificar';
     Object.entries(MACROS).forEach(([m, d]) => { if ((d.sectores||[]).includes(sector)) macro = m; });
     openNewUFModal(macro, sector);
   } else {
-    toast('Selecciona un sector en el panel lateral primero', true);
+    openNewUFModal('', '');
   }
 }
 
@@ -2127,17 +2211,13 @@ function createSubMacro() {
 }
 
 // ──────────────────────────────────────────
-//  MODAL: Nueva UF  (campos dinámicos)
+//  MODAL: Nueva UF  (campos dinámicos + editables)
 // ──────────────────────────────────────────
-
-// Campos que usan select con opciones predefinidas
 const UF_SELECT_FIELDS = {
   'Rol Antena':       ['','TX (Emisora)','RX (Receptora)'],
   'Estado Operativo': ['','Operativo','En Falla','Pendiente Repuesto','Fuera de Servicio'],
 };
-// Campos que son tipo fecha
 const UF_DATE_FIELDS = ['Ultimo Mantenimiento','Fecha','fecha'];
-// Campos clave que van primero (nombre/id de UF)
 const UF_NAME_KEYS   = ['nombre uf','nombre','uf','equipo','name','id'];
 
 function isDateField(h)   { return UF_DATE_FIELDS.some(k => h.toLowerCase().includes(k.toLowerCase())); }
@@ -2146,104 +2226,163 @@ function getSelectOpts(h) { return UF_SELECT_FIELDS[Object.keys(UF_SELECT_FIELDS
 function isNameField(h)   { return UF_NAME_KEYS.some(k => h.toLowerCase().includes(k)); }
 
 function openNewUFModal(macro, sector) {
-  document.getElementById('newUFSector').value       = sector;
-  document.getElementById('newUFMacro').value        = macro;
-  document.getElementById('newUFSectorLabel').textContent = sector;
+  const modal = document.getElementById('newUFModal');
+  modal.dataset.sector = sector;
+  modal.dataset.macro  = macro;
 
-  // Obtener todos los headers del sector (o de referencia)
-  let headers = DATA[sector]?.headers || [];
+  const picker = document.getElementById('newUFSectorPicker');
+  const sel    = document.getElementById('newUFSectorSelect');
+
+  if (!sector) {
+    picker.style.display = 'block';
+    sel.innerHTML = '<option value="">— Elige un sector —</option>';
+    const allSectors = new Set();
+    function collectSectors(m) {
+      (m.sectores||[]).forEach(s => allSectors.add(s));
+      if (m.sub) Object.values(m.sub).forEach(sm => collectSectors(sm));
+    }
+    Object.values(MACROS).forEach(m => collectSectors(m));
+    Object.keys(DATA).forEach(s => allSectors.add(s));
+    [...allSectors].sort().forEach(s => {
+      const o = document.createElement('option');
+      o.value = s; o.textContent = dispName('sector', s) + ' (' + (DATA[s]?.rows?.length||0) + ')';
+      sel.appendChild(o);
+    });
+    document.getElementById('newUFSectorLabel').textContent = 'Elige un sector ↑';
+    document.getElementById('newUFFieldsGrid').innerHTML = '<div style="color:var(--text3);font-size:14px;padding:20px 0;grid-column:1/-1;text-align:center">Selecciona un sector para ver sus campos</div>';
+  } else {
+    picker.style.display = 'none';
+    document.getElementById('newUFSectorLabel').textContent = dispName('sector', sector);
+    newUFBuildFields(sector);
+  }
+  modal.classList.add('open');
+}
+
+function newUFPickSector(sector) {
+  if (!sector) return;
+  const modal = document.getElementById('newUFModal');
+  modal.dataset.sector = sector;
+  document.getElementById('newUFSectorLabel').textContent = dispName('sector', sector);
+  document.getElementById('newUFSectorPicker').style.display = 'none';
+  newUFBuildFields(sector);
+}
+
+function newUFBuildFields(sector) {
+  let headers = [...(DATA[sector]?.headers || [])];
   if (!headers.length) {
     const ref = Object.values(DATA).find(d => d.headers && d.headers.length > 0);
     headers = ref ? [...ref.headers] : [];
   }
-  // Agregar campos fijos extra que no estén ya en headers
   const allFixed = [...FIXED_EXTRA.map(f => f.name), ...EXTRA.map(f => f.name)];
   allFixed.forEach(n => { if (!headers.includes(n)) headers.push(n); });
-
-  // Ordenar: campos de nombre primero, luego el resto
   headers.sort((a, b) => {
     const an = isNameField(a), bn = isNameField(b);
     if (an && !bn) return -1; if (!an && bn) return 1; return 0;
   });
+  if (!headers.length) headers = ['NOMBRE UF'];
+  newUFRenderFields(headers);
+}
 
-  // Construir grid dinámico
+function newUFRenderFields(headers) {
   const grid = document.getElementById('newUFFieldsGrid');
   grid.innerHTML = '';
+  headers.forEach(h => newUFAddFieldEl(grid, h, ''));
+  setTimeout(() => grid.querySelector('.nuf-value-input')?.focus(), 80);
+}
 
-  headers.forEach(h => {
-    const isName = isNameField(h);
-    const wrap = document.createElement('div');
-    if (isName) wrap.className = 'full';
+function newUFAddFieldEl(grid, fieldName, fieldValue) {
+  const isName = isNameField(fieldName);
+  const wrap = document.createElement('div');
+  wrap.className = 'nuf-field' + (isName ? ' is-name' : '');
 
-    const label = document.createElement('label');
-    label.innerHTML = escH(h) + (isName ? ' <span style="color:var(--red)">*</span>' : '');
-    wrap.appendChild(label);
+  const labelRow = document.createElement('div');
+  labelRow.className = 'nuf-label-row';
 
-    let input;
-    if (isSelectField(h)) {
-      input = document.createElement('select');
-      input.className = 'form-select';
-      getSelectOpts(h).forEach(o => {
-        const opt = document.createElement('option');
-        opt.value = o; opt.textContent = o || '— Seleccionar —';
-        input.appendChild(opt);
-      });
-    } else if (isDateField(h)) {
-      input = document.createElement('input');
-      input.type = 'date';
-      input.className = 'form-input';
-    } else {
-      input = document.createElement('input');
-      input.type = 'text';
-      input.className = 'form-input';
-      input.placeholder = isName ? 'Ej: CAM-001, DVR-Sala, AP-Piso2…' : '';
-    }
-    input.dataset.field = h;
-    if (isName) input.addEventListener('keydown', e => { if (e.key === 'Enter') createNewUF(); });
-    wrap.appendChild(input);
-    grid.appendChild(wrap);
-  });
+  const labelInp = document.createElement('input');
+  labelInp.className = 'nuf-label-input';
+  labelInp.value = fieldName;
+  labelInp.title = 'Haz clic para renombrar este campo';
+  labelInp.placeholder = 'Nombre del campo';
 
-  // Si no hay headers en absoluto, poner al menos el campo nombre
-  if (!headers.length) {
-    grid.innerHTML = `
-      <div class="full">
-        <label>Nombre / ID de UF <span style="color:var(--red)">*</span></label>
-        <input class="form-input" data-field="NOMBRE UF" placeholder="Ej: CAM-001, DVR-Sala…">
-      </div>`;
+  const badges = document.createElement('span');
+  if (isName) badges.innerHTML = '<span class="nuf-required-badge">REQUERIDO</span>';
+
+  const delBtn = document.createElement('button');
+  delBtn.className = 'nuf-del-btn';
+  delBtn.innerHTML = '✕';
+  delBtn.title = 'Eliminar este campo';
+  delBtn.type = 'button';
+  delBtn.onclick = () => {
+    if (isName && !confirm('Este es el campo de nombre/ID. ¿Seguro que quieres eliminarlo?')) return;
+    wrap.remove();
+  };
+
+  labelRow.appendChild(labelInp);
+  labelRow.appendChild(badges);
+  labelRow.appendChild(delBtn);
+  wrap.appendChild(labelRow);
+
+  let valueEl;
+  if (isSelectField(fieldName)) {
+    valueEl = document.createElement('select');
+    valueEl.className = 'nuf-value-input';
+    getSelectOpts(fieldName).forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o; opt.textContent = o || '— Seleccionar —';
+      if (o === fieldValue) opt.selected = true;
+      valueEl.appendChild(opt);
+    });
+  } else if (isDateField(fieldName)) {
+    valueEl = document.createElement('input');
+    valueEl.type = 'date';
+    valueEl.className = 'nuf-value-input';
+    valueEl.value = fieldValue;
+  } else {
+    valueEl = document.createElement('input');
+    valueEl.type = 'text';
+    valueEl.className = 'nuf-value-input';
+    valueEl.value = fieldValue;
+    valueEl.placeholder = isName ? 'Ej: CAM-001, DVR-Sala, AP-Piso2…' : '';
+    if (isName) valueEl.addEventListener('keydown', e => { if (e.key === 'Enter') createNewUF(); });
   }
+  wrap.appendChild(valueEl);
+  grid.appendChild(wrap);
+  return wrap;
+}
 
-  document.getElementById('newUFModal').classList.add('open');
-  // Foco en el primer input
-  setTimeout(() => grid.querySelector('input,select')?.focus(), 80);
+function newUFAddField() {
+  const grid = document.getElementById('newUFFieldsGrid');
+  const wrap = newUFAddFieldEl(grid, 'Nuevo campo', '');
+  wrap.querySelector('.nuf-label-input').select();
+  wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function createNewUF() {
-  const sector  = document.getElementById('newUFSector').value;
-  const grid    = document.getElementById('newUFFieldsGrid');
-  const inputs  = [...grid.querySelectorAll('[data-field]')];
+  const modal  = document.getElementById('newUFModal');
+  const sector = modal.dataset.sector;
+  if (!sector) { toast('Selecciona un sector primero', true); return; }
 
-  // Validar campo nombre obligatorio
-  const nameInp = inputs.find(el => isNameField(el.dataset.field));
-  const nombre  = nameInp?.value.trim() || '';
-  if (!nombre) { toast('El nombre / ID de UF es obligatorio', true); nameInp?.focus(); return; }
+  const grid   = document.getElementById('newUFFieldsGrid');
+  const fields = [...grid.querySelectorAll('.nuf-field')];
 
-  if (!DATA[sector]) DATA[sector] = { headers: [], rows: [] };
+  const entries = fields.map(wrap => ({
+    name:  (wrap.querySelector('.nuf-label-input')?.value || '').trim(),
+    value: (wrap.querySelector('.nuf-value-input')?.value  || '').trim()
+  })).filter(e => e.name);
 
-  // Reconstruir headers si estaban vacíos
-  if (!DATA[sector].headers.length) {
-    DATA[sector].headers = inputs.map(el => el.dataset.field);
+  const nameEntry = entries.find(e => isNameField(e.name));
+  if (!nameEntry || !nameEntry.value) {
+    toast('El campo de nombre / ID de UF es obligatorio', true);
+    grid.querySelector('.nuf-field.is-name .nuf-value-input')?.focus();
+    return;
   }
 
-  // Construir fila con todos los valores ingresados
+  if (!DATA[sector]) DATA[sector] = { headers: [], rows: [] };
+  entries.forEach(e => { if (!DATA[sector].headers.includes(e.name)) DATA[sector].headers.push(e.name); });
+
   const newRow = {};
   DATA[sector].headers.forEach(h => { newRow[h] = ''; });
-  inputs.forEach(el => {
-    const h = el.dataset.field;
-    const v = el.value.trim();
-    if (v) newRow[h] = v;
-  });
-
+  entries.forEach(e => { if (e.value) newRow[e.name] = e.value; });
   newRow._sheet = sector;
   newRow._idx   = DATA[sector].rows.length;
   DATA[sector].rows.push(newRow);
@@ -2252,7 +2391,7 @@ function createNewUF() {
   buildSidebar(); renderTable(getRows(SEL));
   closeModal('newUFModal');
   markPendingSync();
-  toast(`✅ UF "${nombre}" creada en sector "${sector}"`);
+  toast('✅ UF "' + nameEntry.value + '" creada en sector "' + dispName('sector', sector) + '"');
 }
 
 function addMacro() {
